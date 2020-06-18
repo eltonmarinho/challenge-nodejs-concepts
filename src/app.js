@@ -35,7 +35,9 @@ app.put("/repositories/:id", (request, response) => {
     if(repositoryIndex<0){
       return response.status(400).json({error:'indice nao encontrado'})
     }
-    const repository = { id, title, url, techs} 
+
+    likes = repositories[repositoryIndex].likes
+    const repository = { id, title, url, techs, likes} 
     repositories[repositoryIndex] = repository
     return response.json(repository)
 });
